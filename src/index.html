@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Input Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="header" data-tauri-drag-region>
+      <div class="title" data-tauri-drag-region>
+        Input Portal
+        <span class="version" id="version" data-tauri-drag-region></span>
+      </div>
+      <div class="control">
+        <div class="close" id="close">
+          <svg class="close-svg" style="fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1"
+            xmlns="http://www.w3.org/2000/svg" p-id="3598">
+            <path
+              d="M576 512l277.333 277.333-64 64L512 576 234.667 853.333l-64-64L448 512 170.667 234.667l64-64L512 448l277.333-277.333 64 64L576 512z"
+              fill="#dfdfdf" p-id="3599"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="preset option">
+        <div class="label">预设</div>
+        <div class="setting">
+          <select name="preset" id="preset_select" class="select">
+            <option hidden></option>
+          </select>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <!-- 键盘开关 -->
+      <div class="option" id="main-switch">
+        <div class="label">启用</div>
+        <div class="setting">
+          <div class="switch disabled">
+            <div class="switch-flex"></div>
+            <div class="switch-handle"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 键盘具体设置 -->
+      <div class="setting-set keys off">
+        <div class="mask"></div>
+        <div class="set-inner">
+          <div class="key-down-duration option">
+            <div class="label">按下动画时长</div>
+            <div class="setting">
+              <div class="fir disabled" id="key_down_transition">
+                <input class="fir-range" type="range" min="0" max="200" step="10" value="0" disabled>
+              </div>
+              <div class="indicator">
+                <!-- <span class="num">0.1</span> -->
+                <span class="unit">ms</span>
+              </div>
+            </div>
+          </div>
+          <div class="key-up-duration option">
+            <div class="label">抬起动画时长</div>
+            <div class="setting">
+              <div class="fir disabled" id="key_up_transition">
+                <input class="fir-range" type="range" min="0" max="200" step="10" value="0" disabled>
+              </div>
+              <div class="indicator">
+                <span class="unit">ms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <!-- 鼠标开关 -->
+      <div class="setting-set mouse-switch off">
+        <div class="mask"></div>
+        <div class="set-inner">
+          <div class="option" id="mouse-move-switch">
+            <div class="label">启用鼠标移动</div>
+            <div class="setting">
+              <div class="switch disabled">
+                <div class="switch-flex"></div>
+                <div class="switch-handle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 鼠标具体设置 -->
+      <div class="setting-set mouses off">
+        <div class="mask"></div>
+        <div class="set-inner">
+          <div class="move-radius option">
+            <div class="label">判断区间</div>
+            <div class="setting">
+              <div class="fir disabled" id="mouse_move_radius">
+                <input class="fir-range" type="range" min="10" max="100" step="10" value="50" disabled>
+              </div>
+              <div class="indicator">
+                <span class="unit">px</span>
+              </div>
+            </div>
+          </div>
+          <div class="move-transition option">
+            <div class="label">动画过渡时长</div>
+            <div class="setting">
+              <div class="fir disabled" id="mouse_move_transition">
+                <input class="fir-range" type="range" min="0" max="200" step="10" value="0" disabled>
+              </div>
+              <div class="indicator">
+                <span class="unit">ms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="server option" id="server">
+        <div class="label">服务器状态<div class="dot"></div>
+        </div>
+        <div class="setting">
+          <div class="copy-icon hide">
+            <svg class="copy-icon-svg" style="width: 1em;height: 1em;fill: #65c265;" viewBox="0 0 1024 1024"
+              version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="727">
+              <path
+                d="M843.693959 293.609061 425.255869 712.056362 186.145026 472.947566 66.579883 592.504522 425.255869 951.165158 963.260126 413.174204Z"
+                p-id="728"></path>
+            </svg>
+          </div>
+          <div id="port" class="diabled"></div>
+        </div>
+      </div>
+      <div class="credit">
+        <div class="credit-cell">
+          <div class="credit-text" id="bilibili">Luis_级长</div>
+        </div>
+        <div class="vertical-divider" style="margin: 0 12px;"></div>
+        <div class="credit-cell">
+          <div class="credit-text" id="github">Github</div>
+        </div>
+      </div>
+    </div>
+    <div class="donate">
+      <div class="donate-header">
+        喜欢这款软件？请我喝杯咖啡吧！
+      </div>
+      <div class="donate-body">
+        <div class="payways">
+          <div class="payway">
+            <div class="pay-img">
+              <img src="ui/wechat.jpg" alt="" class="image-fill pay-img-inner">
+            </div>
+            <div class="pay-label">
+              使用 <span style="color: #1AAD19;">微信</span> 扫码
+            </div>
+          </div>
+          <div class="payway">
+            <div class="pay-img">
+              <img src="ui/alipay.jpg" alt="" class="image-fill pay-img-inner">
+            </div>
+            <div class="pay-label">
+              使用 <span style="color: #1678ff;">支付宝</span> 扫码
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="slider.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

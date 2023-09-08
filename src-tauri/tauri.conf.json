@@ -1,0 +1,94 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "devPath": "../src",
+    "distDir": "../src",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "Input Portal",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "notification": {
+        "all": true
+      },
+      "all": false,
+      "fs": {
+        "scope": [
+          "&RESOURCE/*"
+        ]
+      },
+      "window": {
+        "startDragging": true,
+        "show": true,
+        "hide": true,
+        "close": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.luiscreamed.inputportal",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [
+        "webroot/*",
+        "presets/*",
+        "config.json"
+      ],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "wix": {
+          "language": "zh-CN"
+        },
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "label": "main",
+        "fullscreen": false,
+        "height": 450,
+        "resizable": false,
+        "title": "Input Portal",
+        "width": 340,
+        "center": true,
+        "decorations": false,
+        "visible": false
+      }
+    ],
+    "systemTray": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    }
+  }
+}

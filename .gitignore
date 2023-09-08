@@ -1,0 +1,6 @@
+# node包
+/node_modules/
+# 图标项目
+/icon/
+# 图标
+app-icon.png
